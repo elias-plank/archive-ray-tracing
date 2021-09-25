@@ -1,3 +1,0 @@
-C:/Users/Elias/Desktop/RayTracing/cmake-build-release/CMakeFiles/RayTracing.dir
-C:/Users/Elias/Desktop/RayTracing/cmake-build-release/CMakeFiles/edit_cache.dir
-C:/Users/Elias/Desktop/RayTracing/cmake-build-release/CMakeFiles/rebuild_cache.dir
