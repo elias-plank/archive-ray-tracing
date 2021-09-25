@@ -6,4 +6,4 @@ Note that the scene is software rendered (on the CPU), I might revisit this for 
 
 ## Example image
 
-![Spheres](assets/RayTracingSpheres.png)
+![Spheres](assets/RayTracingExample.png)
