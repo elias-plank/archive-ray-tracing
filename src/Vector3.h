@@ -21,10 +21,9 @@ public:
     [[nodiscard]] inline double Y() const { return e[1]; }
     [[nodiscard]] inline double Z() const { return e[2]; }
 
-
     [[nodiscard]] Vector3 operator - () const;
     [[nodiscard]] double operator[](int i) const;
-    [[nodiscard]] double& operator[](int i );
+    [[nodiscard]] double& operator[](int i);
 
     [[nodiscard]] Vector3 operator + (const Vector3& right) const;
     [[nodiscard]] Vector3 operator - (const Vector3& right) const;
