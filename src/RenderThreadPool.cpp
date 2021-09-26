@@ -1,7 +1,7 @@
 #include "RenderThreadPool.h"
 
-RenderThreadPool::RenderThreadPool(uint32_t imageWidth, uint32_t imageHeight, uint32_t samplesPerPixel, uint32_t maxDepth) 
-	: aspectRatio((double)imageWidth / (double)imageHeight), imageWidth(imageWidth), imageHeight(imageHeight), samplesPerPixel(samplesPerPixel), maxDepth(maxDepth), camera(aspectRatio), outputImage(imageWidth, imageHeight)
+RenderThreadPool::RenderThreadPool(uint32_t imageWidth, uint32_t imageHeight, uint32_t samplesPerPixel, uint32_t maxDepth, const Camera& camera) 
+	: imageWidth(imageWidth), imageHeight(imageHeight), samplesPerPixel(samplesPerPixel), maxDepth(maxDepth), camera(camera), outputImage(imageWidth, imageHeight)
 {
 	
 }

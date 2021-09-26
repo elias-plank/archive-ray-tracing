@@ -19,7 +19,6 @@ class RenderThreadPool {
 
 private:
     std::vector<std::thread> threadPool{};
-    double aspectRatio{};
     uint32_t imageWidth{};
     uint32_t imageHeight{};
     uint32_t samplesPerPixel{};
@@ -30,7 +29,7 @@ private:
     Image outputImage;
 
 public:
-    RenderThreadPool(uint32_t imageWidth, uint32_t imageHeight, uint32_t samplesPerPixel, uint32_t maxDepth);
+    RenderThreadPool(uint32_t imageWidth, uint32_t imageHeight, uint32_t samplesPerPixel, uint32_t maxDepth, const Camera& camera);
 	
     void AddHittable(const std::shared_ptr<Hittable>& hittable);
     void Render(const std::string& filePath, uint32_t threads);

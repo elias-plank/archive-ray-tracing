@@ -17,9 +17,9 @@ private:
 
 public:
     Camera() = delete;
-    explicit Camera(double aspectRatio, double focalLength = 1.0);
+    Camera(const Vector3& position, const Vector3& lookAt, const Vector3& upDir, double vfov, double aspectRatio);
 
-    [[nodiscard]] Ray GetRay(double u, double v) const;
+    [[nodiscard]] Ray GetRay(double s, double t) const;
 };
 
 
