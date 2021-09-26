@@ -3,11 +3,11 @@
 int main(int, char**) {
 
     static constexpr auto aspectRatio = 16.0 / 9.0;
-    static constexpr auto width = 640;
+    static constexpr auto width = 800;
     static constexpr auto height = static_cast<int>(width / aspectRatio);
     static constexpr auto samplesPerPixel = 100;
     static constexpr auto maxDepth = 50;
-    static constexpr auto threads = 8;
+    static const auto threads = std::thread::hardware_concurrency();;
 
     RenderThreadPool threadPool{ width, height, samplesPerPixel, maxDepth };
 
@@ -21,7 +21,7 @@ int main(int, char**) {
     threadPool.AddHittable(std::make_shared<Sphere>(Vector3{-1.0,    0.0, -1.0 },   0.5, materialLeft));
     threadPool.AddHittable(std::make_shared<Sphere>(Vector3{ 1.0,    0.0, -1.0 },   0.5, materialRight));
 
-    threadPool.Render("output.ppm", 8);
+    threadPool.Render("output.ppm", threads);
 
     return 0;
 }
