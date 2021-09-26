@@ -38,11 +38,12 @@
     return Vector3{ 1, 1, 1 } * (1.0 - t) + Vector3{ 0.5, 0.7, 1.0 } * t;
 }
 
-int main() {
+int main(int, char**) {
 
+    
     // Image
     static constexpr auto aspectRatio = 16.0 / 9.0;
-    static constexpr auto width = 1920;
+    static constexpr auto width = 200;
     static constexpr auto height = static_cast<uint32_t>(width / aspectRatio);
     static constexpr auto samplesPerPixel = 100;
     static constexpr auto maxDepth = 50;
@@ -59,20 +60,19 @@ int main() {
     world.Add(std::make_shared<Sphere>(Vector3{-1.0,    0.0, -1.0 },   0.5, materialLeft));
     world.Add(std::make_shared<Sphere>(Vector3{ 1.0,    0.0, -1.0 },   0.5, materialRight));
 
-
     //Camera
     Camera camera{aspectRatio, 1.0};
 
     // Render
     Image outputImage{width, height};
 
-    std::chrono::time_point renderBegin = std::chrono::high_resolution_clock::now();
+    auto renderBegin = std::chrono::high_resolution_clock::now();
 
     for (uint32_t y = 0; y < height; y++) {
 
         for (uint32_t x = 0; x < width; x++) {
 
-            Vector3 pixelColor{0, 0, 0};
+            Vector3 pixelColor{ 0, 0, 0 };
 
             for(int32_t s = 0; s < samplesPerPixel; s++) {
 
@@ -88,13 +88,13 @@ int main() {
         }
     }
 
-    std::chrono::time_point renderEnd = std::chrono::high_resolution_clock::now();
+    auto renderEnd = std::chrono::high_resolution_clock::now();
     auto renderDuration = std::chrono::duration_cast<std::chrono::milliseconds>(renderEnd - renderBegin).count();
     std::printf("Render took %lf milliseconds\n", static_cast<double>(renderDuration));
 
-    std::chrono::time_point writeBegin = std::chrono::high_resolution_clock::now();
-    outputImage.Write("../assets/output.ppm");
-    std::chrono::time_point writeEnd = std::chrono::high_resolution_clock::now();
+    auto writeBegin = std::chrono::high_resolution_clock::now();
+    outputImage.Write("output.ppm");
+    auto writeEnd = std::chrono::high_resolution_clock::now();
     auto writeDuration = std::chrono::duration_cast<std::chrono::milliseconds>(writeEnd - writeBegin).count();
     std::printf("Write took %lf milliseconds\n", static_cast<double>(writeDuration));
 
