@@ -3,11 +3,12 @@
 //
 
 #include "Image.h"
-#include <stdexcept>
+#include <cstring>
 
 Image::Image(uint32_t width, uint32_t height) : width(width), height(height) {
 
     data = new Color[width * height];
+    memset(data, 0, width * height);
 }
 
 Image::~Image() {
