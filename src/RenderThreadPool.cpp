@@ -13,6 +13,8 @@ void RenderThreadPool::AddHittable(const std::shared_ptr<Hittable>& hittable) {
 
 void RenderThreadPool::Render(const std::string& filePath, uint32_t threads) {
 
+    std::printf("Utilizing %d threads.\n", static_cast<int>(threads));
+
     threadPool.resize(threads);
 
     auto renderBegin = std::chrono::high_resolution_clock::now();
