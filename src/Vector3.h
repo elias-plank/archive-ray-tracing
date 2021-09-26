@@ -11,7 +11,7 @@
 class Vector3 {
 
 private:
-    double e[3];
+    double e[3]{};
 
 public:
     Vector3() = default;

@@ -12,11 +12,11 @@ class Material;
 
 struct HitRecord {
 
-    Vector3 Point;
-    Vector3 Normal;
-    std::shared_ptr<Material> Material;
-    double Time;
-    bool FrontFace;
+    Vector3 Point{};
+    Vector3 Normal{};
+    std::shared_ptr<Material> Material{};
+    double Time{};
+    bool FrontFace{};
 
     void SetFaceNormal(const Ray& ray, const Vector3& outwardNormal);
 };

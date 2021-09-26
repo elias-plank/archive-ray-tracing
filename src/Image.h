@@ -12,9 +12,9 @@
 class Image {
 
 private:
-    uint32_t width;
-    uint32_t height;
-    Color* data;
+    uint32_t width{};
+    uint32_t height{};
+    Color* data{};
 
 public:
     explicit Image(uint32_t width, uint32_t height);

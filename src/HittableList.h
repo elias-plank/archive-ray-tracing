@@ -12,7 +12,7 @@
 class HittableList : public Hittable {
 
 private:
-    std::vector<std::shared_ptr<Hittable>> objects;
+    std::vector<std::shared_ptr<Hittable>> objects{};
 
 public:
     HittableList() = default;
